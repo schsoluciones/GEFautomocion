@@ -715,7 +715,19 @@ if ($ident !== '') {
         });
       });
     </script>
-
+    <script>
+        // Iniciar Flexslider cuando las imágenes estén listas
+        $(window).on('load', function(){
+            if ($('.flexslider-thumbnails').length) {
+                $('.flexslider-thumbnails').flexslider({
+                    animation: "slide",
+                    controlNav: "thumbnails",
+                    slideshow: false,
+                    smoothHeight: true
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
