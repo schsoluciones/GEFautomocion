@@ -147,58 +147,116 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 
+    <!-- Modal Financiación -->
+    <div class="modal fade" id="financiacionModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
+            <div class="d-flex align-items-center gap-3">
+              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-money-transfer"></i></div>
+              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Financiación</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body" style="padding: 40px; text-align: center;">
+            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Te ayudamos en la solicitud de la financiación con las mejores condiciones.</p>
+          </div>
+          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
+            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Garantía -->
+    <div class="modal fade" id="garantiaModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
+            <div class="d-flex align-items-center gap-3">
+              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-shield"></i></div>
+              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Garantía</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body" style="padding: 40px; text-align: center;">
+            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Con garantía que hace que la compra sea lo más segura posible</p>
+          </div>
+          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
+            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+            <div style="position: absolute; inset: 0; background: rgba(40, 40, 40, 0.102);"></div>
+        </div>
+
+
     <!-- footer area -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-widget">
-                            <h4 class="footer-title">Sobre nosotros</h4>
-                            <div class="footer-about">
-                                <p>Información sobre la empresa.</p>
-                                <a href="nosotros" class="footer-link">Leer más</a>
-                            </div>
+    <footer class="footer-area">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row footer-widget-wrapper pt-60 pb-40 align-items-start">
+                    <!-- Logo + Texto -->
+                    <div class="col-md-12 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box about-us">
+                            <a href="#" class="footer-logo d-block">
+                                <img src="assets/img/logo/Icono_GEF_SinFondo_pequeno.svg" alt="GEF Automoción" style="max-width: 160px;">
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-widget">
-                            <h4 class="footer-title">Servicios</h4>
-                            <ul class="footer-services-list">
-                                <li><a href="vehiculos" class="footer-services-link">Venta de vehículos</a></li>
-                                <li><a href="financiacion" class="footer-services-link">Financiación</a></li>
-                                <li><a href="seguros" class="footer-services-link">Seguros</a></li>
+                    
+                    <!-- Contacto -->
+                    <div class="col-md-6 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box">
+                            <h4 class="footer-widget-title mb-3">Contacto</h4>
+                            <ul class="footer-contact">
+                                <li class="mb-2"><a href="tel:+34645952869"><i class="far fa-phone"></i>+34 645 952 869</a></li>
+                                <li class="mb-0"><a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelope"></i>gef.automocion@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="footer-widget">
-                            <h4 class="footer-title">Contacto</h4>
-                            <div class="footer-contact">
-                                <p><i class="far fa-map-marker-alt"></i> Dirección de la empresa</p>
-                                <p><i class="far fa-envelope"></i> <a href="mailto:info@gefautomocion.com">info@gefautomocion.com</a></p>
-                                <p><i class="far fa-phone"></i> <a href="tel:+34123456789">+34 123 456 789</a></p>
-                            </div>
+                    
+                    <!-- Enlaces Rápidos -->
+                    <div class="col-md-6 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title mb-3">Enlaces Rápidos</h4>
+                            <ul class="footer-list">
+                                <li><a href="nosotros"><i class="fas fa-caret-right"></i> Sobre Nosotros</a></li>
+                                <li><a href="vehiculos"><i class="fas fa-caret-right"></i> Nuestros Coches</a></li>
+                                <li><a href="contacto"><i class="fas fa-caret-right"></i> Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Servicios -->
+                    <div class="col-md-12 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title mb-3">Servicios</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#financiacionModal"><i class="fas fa-caret-right"></i> Financiación</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#garantiaModal"><i class="fas fa-caret-right"></i> Garantía</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+        </div>
+        <div class="copyright">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-copyright">
-                            <p>&copy; 2023 GEF Automoción. Todos los derechos reservados.</p>
-                        </div>
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                            &copy; Copyright <span id="date"></span> <a href="#"> GEF Automoción </a> Todos los derechos reservados.
+                        </p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="footer-menu">
-                            <ul>
-                                <li><a href="index">Inicio</a></li>
-                                <li><a href="nosotros">Sobre nosotros</a></li>
-                                <li><a href="vehiculos">Vehículos</a></li>
-                                <li><a href="contacto">Contacto</a></li>
-                            </ul>
-                        </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -206,14 +264,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </footer>
     <!-- footer area end -->
 
+
+
+
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <!-- scroll-top end -->
+
+
     <!-- js -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="assets/js/nice-select.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+    (function () {
+      const root = document.documentElement;
+    
+      function setHeaderHeight() {
+        const header = document.querySelector('.header');
+        const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        root.style.setProperty('--header-h', h + 'px');
+      }
+    
+      // Recalcular al cargar, redimensionar y cuando se abre/cierra el menú mobile
+      window.addEventListener('load', setHeaderHeight);
+      window.addEventListener('resize', setHeaderHeight);
+    
+      // Eventos de Bootstrap collapse para el menú
+      document.addEventListener('shown.bs.collapse', setHeaderHeight);
+      document.addEventListener('hidden.bs.collapse', setHeaderHeight);
+    
+      // Si cambia el header por cualquier motivo (sticky, logos, etc.)
+      const header = document.querySelector('.header');
+      if ('ResizeObserver' in window && header) {
+        const ro = new ResizeObserver(setHeaderHeight);
+        ro.observe(header);
+      }
+    
+      // Primera llamada inmediata
+      setHeaderHeight();
+    })();
+    </script>
+    <script>
+      // Autoplay al abrir y limpiar al cerrar
+      document.addEventListener('DOMContentLoaded', function () {
+        const modalEl = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoFrame');
+    
+        // Cuando se va a abrir la modal
+        modalEl.addEventListener('show.bs.modal', function (event) {
+          const trigger = event.relatedTarget; // el botón que abrió la modal
+          if (!trigger) return;
+        
+          const videoId = trigger.getAttribute('data-video-id');
+          const params = new URLSearchParams({
+            autoplay: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1
+          });
+          iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        });
+    
+        // Al cerrar la modal, limpia el src para detener la reproducción
+        modalEl.addEventListener('hidden.bs.modal', function () {
+          iframe.src = '';
+        });
+      });
+    </script>
+
 </body>
 
 </html>

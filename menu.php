@@ -578,148 +578,204 @@ try {
     </div>
 </main>
 
-<footer class="footer-area">
-    <div class="footer-widget">
-        <div class="container">
-            <div class="row footer-widget-wrapper pt-60 pb-40 align-items-start">
-                <div class="col-md-12 col-lg-3 text-center text-lg-start">
-                    <div class="footer-widget-box about-us">
-                        <a href="#" class="footer-logo d-block">
-                            <img src="assets/img/logo/Icono_GEF_SinFondo_pequeno.svg" alt="GEF Automoción" style="max-width: 160px;">
-                        </a>
+ <!-- Modal Financiación -->
+    <div class="modal fade" id="financiacionModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
+            <div class="d-flex align-items-center gap-3">
+              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-money-transfer"></i></div>
+              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Financiación</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body" style="padding: 40px; text-align: center;">
+            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Te ayudamos en la solicitud de la financiación con las mejores condiciones.</p>
+          </div>
+          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
+            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Garantía -->
+    <div class="modal fade" id="garantiaModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
+          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
+            <div class="d-flex align-items-center gap-3">
+              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-shield"></i></div>
+              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Garantía</h5>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body" style="padding: 40px; text-align: center;">
+            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Con garantía que hace que la compra sea lo más segura posible</p>
+          </div>
+          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
+            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+            <div style="position: absolute; inset: 0; background: rgba(40, 40, 40, 0.102);"></div>
+        </div>
+
+
+    <!-- footer area -->
+    <footer class="footer-area">
+        <div class="footer-widget">
+            <div class="container">
+                <div class="row footer-widget-wrapper pt-60 pb-40 align-items-start">
+                    <!-- Logo + Texto -->
+                    <div class="col-md-12 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box about-us">
+                            <a href="#" class="footer-logo d-block">
+                                <img src="assets/img/logo/Icono_GEF_SinFondo_pequeno.svg" alt="GEF Automoción" style="max-width: 160px;">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contacto -->
+                    <div class="col-md-6 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box">
+                            <h4 class="footer-widget-title mb-3">Contacto</h4>
+                            <ul class="footer-contact">
+                                <li class="mb-2"><a href="tel:+34645952869"><i class="far fa-phone"></i>+34 645 952 869</a></li>
+                                <li class="mb-0"><a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelope"></i>gef.automocion@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Enlaces Rápidos -->
+                    <div class="col-md-6 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title mb-3">Enlaces Rápidos</h4>
+                            <ul class="footer-list">
+                                <li><a href="nosotros"><i class="fas fa-caret-right"></i> Sobre Nosotros</a></li>
+                                <li><a href="vehiculos"><i class="fas fa-caret-right"></i> Nuestros Coches</a></li>
+                                <li><a href="contacto"><i class="fas fa-caret-right"></i> Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Servicios -->
+                    <div class="col-md-12 col-lg-3 text-center text-lg-start">
+                        <div class="footer-widget-box list">
+                            <h4 class="footer-widget-title mb-3">Servicios</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#financiacionModal"><i class="fas fa-caret-right"></i> Financiación</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#garantiaModal"><i class="fas fa-caret-right"></i> Garantía</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3 text-center text-lg-start">
-                    <div class="footer-widget-box">
-                        <h4 class="footer-widget-title mb-3">Contacto</h4>
-                        <ul class="footer-contact">
-                            <li class="mb-2"><a href="tel:+34985123456"><i class="far fa-phone"></i>+34 985 123 456</a></li>
-                            <li class="mb-0"><a href="mailto:info@gefautomocion.com"><i class="far fa-envelope"></i>info@gefautomocion.com</a></li>
-                        </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                            &copy; Copyright <span id="date"></span> <a href="#"> GEF Automoción </a> Todos los derechos reservados.
+                        </p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center text-lg-start">
-                    <div class="footer-widget-box list">
-                        <h4 class="footer-widget-title mb-3">Enlaces Rápidos</h4>
-                        <ul class="footer-list">
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Sobre Nosotros</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Nuestros Coches</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Testimonios</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Contacto</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-3 text-center text-lg-start">
-                    <div class="footer-widget-box list">
-                        <h4 class="footer-widget-title mb-3">Servicios</h4>
-                        <ul class="footer-list">
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Importación</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Venta de Coches</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Financiación</a></li>
-                            <li><a href="#"><i class="fas fa-caret-right"></i> Garantía</a></li>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 align-self-center">
-                    <p class="copyright-text">
-                        &copy; <span id="date"></span> <a href="#">GEF Automoción</a> Todos los derechos reservados.
-                    </p>
-                </div>
-                <div class="col-md-6 align-self-center">
-                    <ul class="footer-social">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
+    <!-- footer area end -->
 
-<a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
 
-<!-- js -->
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/modernizr.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/jquery.appear.min.js"></script>
-<script src="assets/js/jquery.easing.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/counter-up.js"></script>
-<script src="assets/js/jquery-ui.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/main.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const verVehiculosBtn = document.querySelector('a[href="#ver-vehiculos"]');
-    const cargarVehiculoBtn = document.querySelector('a[href="#cargar-vehiculo"]');
-    const verVehiculosSection = document.querySelector('#ver-vehiculos');
-    const cargarVehiculoSection = document.querySelector('#cargar-vehiculo');
 
-    function toggleSections(showSection) {
-        verVehiculosSection.style.display = showSection === 'ver' ? 'block' : 'none';
-        cargarVehiculoSection.style.display = showSection === 'cargar' ? 'block' : 'none';
-    }
+    <!-- scroll-top -->
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <!-- scroll-top end -->
 
-    if (verVehiculosBtn) verVehiculosBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        toggleSections('ver');
-    });
-    if (cargarVehiculoBtn) cargarVehiculoBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        toggleSections('cargar');
-    });
 
-    toggleSections('ver'); // Por defecto
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const btn  = document.querySelector('.profile-img-btn');
-  const file = document.querySelector('.profile-img-file');
-  const img  = document.querySelector('.user-profile-img img');
-
-  if (btn && file && img) {
-    // Abre el selector al pulsar la cámara
-    btn.addEventListener('click', function() { file.click(); });
-
-    // Cuando el usuario elige un archivo, lo subimos
-    file.addEventListener('change', function() {
-      if (!file.files || !file.files[0]) return;
-
-      const fd = new FormData();
-      fd.append('subir_foto_usuario', '1');   // bandera para el backend
-      fd.append('foto_usuario', file.files[0]);
-
-      fetch('menu.php', { method: 'POST', body: fd })
-        .then(r => r.json())
-        .then(data => {
-          if (data && data.ok && data.path) {
-            // Fuerza recarga de la imagen en el <img>
-            img.src = data.path + '?t=' + Date.now();
-          } else {
-            alert(data && data.error ? data.error : 'No se pudo subir la imagen.');
-          }
-        })
-        .catch(() => alert('Error de conexión al subir la imagen.'));
-    });
-  }
-});
-</script>
+    <!-- js -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/counter-up.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+    (function () {
+      const root = document.documentElement;
+    
+      function setHeaderHeight() {
+        const header = document.querySelector('.header');
+        const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
+        root.style.setProperty('--header-h', h + 'px');
+      }
+    
+      // Recalcular al cargar, redimensionar y cuando se abre/cierra el menú mobile
+      window.addEventListener('load', setHeaderHeight);
+      window.addEventListener('resize', setHeaderHeight);
+    
+      // Eventos de Bootstrap collapse para el menú
+      document.addEventListener('shown.bs.collapse', setHeaderHeight);
+      document.addEventListener('hidden.bs.collapse', setHeaderHeight);
+    
+      // Si cambia el header por cualquier motivo (sticky, logos, etc.)
+      const header = document.querySelector('.header');
+      if ('ResizeObserver' in window && header) {
+        const ro = new ResizeObserver(setHeaderHeight);
+        ro.observe(header);
+      }
+    
+      // Primera llamada inmediata
+      setHeaderHeight();
+    })();
+    </script>
+    <script>
+      // Autoplay al abrir y limpiar al cerrar
+      document.addEventListener('DOMContentLoaded', function () {
+        const modalEl = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoFrame');
+    
+        // Cuando se va a abrir la modal
+        modalEl.addEventListener('show.bs.modal', function (event) {
+          const trigger = event.relatedTarget; // el botón que abrió la modal
+          if (!trigger) return;
+        
+          const videoId = trigger.getAttribute('data-video-id');
+          const params = new URLSearchParams({
+            autoplay: 1,
+            rel: 0,
+            modestbranding: 1,
+            playsinline: 1
+          });
+          iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+        });
+    
+        // Al cerrar la modal, limpia el src para detener la reproducción
+        modalEl.addEventListener('hidden.bs.modal', function () {
+          iframe.src = '';
+        });
+      });
+    </script>
 
 </body>
+
 </html>
