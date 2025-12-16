@@ -7,8 +7,8 @@
  $contact_message = $_POST['message'];
 
 
- $message = "<b>Mail Sender Info:</b> </br>
-            <h5><b>Name:</b>".$name."</h5>
+ $message = "<b>Solicitud de información por contactoW:</b> </br>
+            <h5><b>Nombre:</b>".$name."</h5>
             <h5><b>Email:</b>".$email."</h5>
             </br>
             <p>".$contact_message."</p>";
@@ -28,7 +28,7 @@
 //     echo "Your message could not be send!.";
 //  }
 
-echo "Your message send successfully!.";
+echo "Mensaje enviado correctamente!.";
 
 
 ?>
