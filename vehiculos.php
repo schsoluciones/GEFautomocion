@@ -565,7 +565,6 @@ function selected($cond){ return $cond ? 'selected' : ''; }
         </div>
       </div>
     </div>
-            <div style="position: absolute; inset: 0; background: rgba(40, 40, 40, 0.102);"></div>
         </div>
 
 
