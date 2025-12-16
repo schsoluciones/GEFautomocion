@@ -1,0 +1,25 @@
+# Activa mod_rewrite
+RewriteEngine On
+
+# Orden de archivos índice por defecto
+DirectoryIndex index.html index.php
+
+# 1) No tocar archivos/carpetas reales (css, js, imágenes, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# 2) Resolver URLs sin extensión -> primero .html, luego .php
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# 3) Redirigir .php/.html -> versión “limpia”
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.(php|html)[\s?]
+RewriteRule ^ %1 [R=301,L]
+
+# 4) Redirigir index.php / index.html -> raíz
+RewriteCond %{THE_REQUEST} \s/+index\.(php|html)[\s?]
+RewriteRule ^index\.(php|html)$ / [R=301,L]
