@@ -74,9 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="header-top-left">
                         <div class="header-top-contact">
                             <ul>
-                                <li><a href="mailto:info@gefautomocion.com"><i class="far fa-envelopes"></i>
-                                        info@gefautomocion.com</a></li>
-                                <li><a href="tel:+34123456789"><i class="far fa-phone-volume"></i> +34 123 456 789</a>
+                                <li><a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelopes"></i>
+                                        gef.automocion@gmail.com</a></li>
+                                <li><a href="tel:+34645952869"><i class="far fa-phone-volume"></i> +34 645 952 869</a>
                                 </li>
                             </ul>
                         </div>
