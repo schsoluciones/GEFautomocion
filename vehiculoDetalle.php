@@ -145,8 +145,8 @@ if ($ident !== '') {
                     <div class="header-top-left">
                         <div class="header-top-contact">
                             <ul>
-                                <li><a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelopes"></i> gef.automocion@gmail.com</a></li>
-                                <li><a href="tel:+34645952869"><i class="far fa-phone-volume"></i> +34 645 952 869</a></li>
+                                <li><a href="mailto:info@gefautomocion.com"><i class="far fa-envelopes"></i> info@gefautomocion.com</a></li>
+                                <li><a href="tel:+34123456789"><i class="far fa-phone-volume"></i> +34 123 456 789</a></li>
                             </ul>
                         </div>
                     </div>
@@ -228,11 +228,11 @@ if ($ident !== '') {
                     <ul>
                         <li>
                             <h6>Email</h6>
-                            <a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelope"></i>gef.automocion@gmail.com</a>
+                            <a href="mailto:info@gefautomocion.com"><i class="far fa-envelope"></i>info@gefautomocion.com</a>
                         </li>
                         <li>
                             <h6>Teléfono</h6>
-                            <a href="tel:+21236547898"><i class="far fa-phone"></i>+34 645 952 869</a>
+                            <a href="tel:+21236547898"><i class="far fa-phone"></i>+34 123 456 789</a>
                         </li>
                     </ul>
                 </div>
@@ -519,50 +519,6 @@ if ($ident !== '') {
         <!-- car single end -->
     </main>
 
-    <!-- Modal Financiación -->
-    <div class="modal fade" id="financiacionModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
-          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
-            <div class="d-flex align-items-center gap-3">
-              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-money-transfer"></i></div>
-              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Financiación</h5>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body" style="padding: 40px; text-align: center;">
-            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Te ayudamos en la solicitud de la financiación con las mejores condiciones.</p>
-          </div>
-          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
-            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Garantía -->
-    <div class="modal fade" id="garantiaModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: none; border-radius: 15px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);">
-          <div class="modal-header" style="border-bottom: 2px solid #c5b993; background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); border-radius: 15px 15px 0 0;">
-            <div class="d-flex align-items-center gap-3">
-              <div style="font-size: 28px; color: #c5b993;"><i class="flaticon-shield"></i></div>
-              <h5 class="modal-title" style="color: #111111; font-weight: 700; font-size: 24px; margin: 0;">Garantía</h5>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body" style="padding: 40px; text-align: center;">
-            <p style="font-size: 18px; color: #757F95; line-height: 1.8; margin: 0;">Con garantía que hace que la compra sea lo más segura posible</p>
-          </div>
-          <div class="modal-footer" style="border-top: none; padding: 20px 40px; background: #f9f9f9; border-radius: 0 0 15px 15px;">
-            <button type="button" class="theme-btn" data-bs-dismiss="modal">Entendido<i class="fas fa-arrow-right-long"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
-        </div>
-
-
     <!-- footer area -->
     <footer class="footer-area">
         <div class="footer-widget">
@@ -576,37 +532,40 @@ if ($ident !== '') {
                             </a>
                         </div>
                     </div>
-                    
+
                     <!-- Contacto -->
                     <div class="col-md-6 col-lg-3 text-center text-lg-start">
                         <div class="footer-widget-box">
                             <h4 class="footer-widget-title mb-3">Contacto</h4>
                             <ul class="footer-contact">
-                                <li class="mb-2"><a href="tel:+34645952869"><i class="far fa-phone"></i>+34 645 952 869</a></li>
-                                <li class="mb-0"><a href="mailto:gef.automocion@gmail.com"><i class="far fa-envelope"></i>gef.automocion@gmail.com</a></li>
+                                <li class="mb-2"><a href="tel:+34985123456"><i class="far fa-phone"></i>+34 985 123 456</a></li>
+                                <li class="mb-0"><a href="mailto:info@gefautomocion.com"><i class="far fa-envelope"></i>info@gefautomocion.com</a></li>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- Enlaces Rápidos -->
                     <div class="col-md-6 col-lg-3 text-center text-lg-start">
                         <div class="footer-widget-box list">
                             <h4 class="footer-widget-title mb-3">Enlaces Rápidos</h4>
                             <ul class="footer-list">
-                                <li><a href="nosotros"><i class="fas fa-caret-right"></i> Sobre Nosotros</a></li>
-                                <li><a href="vehiculos"><i class="fas fa-caret-right"></i> Nuestros Coches</a></li>
-                                <li><a href="contacto"><i class="fas fa-caret-right"></i> Contacto</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Sobre Nosotros</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Nuestros Coches</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Testimonios</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Contacto</a></li>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <!-- Servicios -->
                     <div class="col-md-12 col-lg-3 text-center text-lg-start">
                         <div class="footer-widget-box list">
                             <h4 class="footer-widget-title mb-3">Servicios</h4>
                             <ul class="footer-list">
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#financiacionModal"><i class="fas fa-caret-right"></i> Financiación</a></li>
-                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#garantiaModal"><i class="fas fa-caret-right"></i> Garantía</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Importación</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Venta de Coches</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Financiación</a></li>
+                                <li><a href="#"><i class="fas fa-caret-right"></i> Garantía</a></li>
                             </ul>
                         </div>
                     </div>
@@ -635,13 +594,9 @@ if ($ident !== '') {
     </footer>
     <!-- footer area end -->
 
-
-
-
     <!-- scroll-top -->
     <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
     <!-- scroll-top end -->
-
 
     <!-- js -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
@@ -657,64 +612,9 @@ if ($ident !== '') {
     <script src="assets/js/jquery-ui.min.js"></script>
     <script src="assets/js/jquery.nice-select.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/flex-slider.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script>
-    (function () {
-      const root = document.documentElement;
-    
-      function setHeaderHeight() {
-        const header = document.querySelector('.header');
-        const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-        root.style.setProperty('--header-h', h + 'px');
-      }
-    
-      // Recalcular al cargar, redimensionar y cuando se abre/cierra el menú mobile
-      window.addEventListener('load', setHeaderHeight);
-      window.addEventListener('resize', setHeaderHeight);
-    
-      // Eventos de Bootstrap collapse para el menú
-      document.addEventListener('shown.bs.collapse', setHeaderHeight);
-      document.addEventListener('hidden.bs.collapse', setHeaderHeight);
-    
-      // Si cambia el header por cualquier motivo (sticky, logos, etc.)
-      const header = document.querySelector('.header');
-      if ('ResizeObserver' in window && header) {
-        const ro = new ResizeObserver(setHeaderHeight);
-        ro.observe(header);
-      }
-    
-      // Primera llamada inmediata
-      setHeaderHeight();
-    })();
-    </script>
-    <script>
-      // Autoplay al abrir y limpiar al cerrar
-      document.addEventListener('DOMContentLoaded', function () {
-        const modalEl = document.getElementById('videoModal');
-        const iframe = document.getElementById('videoFrame');
-    
-        // Cuando se va a abrir la modal
-        modalEl.addEventListener('show.bs.modal', function (event) {
-          const trigger = event.relatedTarget; // el botón que abrió la modal
-          if (!trigger) return;
-        
-          const videoId = trigger.getAttribute('data-video-id');
-          const params = new URLSearchParams({
-            autoplay: 1,
-            rel: 0,
-            modestbranding: 1,
-            playsinline: 1
-          });
-          iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
-        });
-    
-        // Al cerrar la modal, limpia el src para detener la reproducción
-        modalEl.addEventListener('hidden.bs.modal', function () {
-          iframe.src = '';
-        });
-      });
-    </script>
+
     <script>
         // Iniciar Flexslider cuando las imágenes estén listas
         $(window).on('load', function(){
@@ -729,5 +629,4 @@ if ($ident !== '') {
         });
     </script>
 </body>
-
 </html>
