@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <?php echo htmlspecialchars($error); ?>
                             </div>
                         <?php endif; ?>
-                        <form method="POST" action="login">
+                        <form method="POST" action="login.php">
                             <div class="form-group">
                                 <label>Usuario</label>
                                 <input type="text" name="username" class="form-control" placeholder="Tu Usuario" required>
