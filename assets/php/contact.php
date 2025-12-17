@@ -38,46 +38,76 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
    CUERPO DEL EMAIL (HTML)
    ========================= */
 
-$logoUrl = 'https://gef-automocion.com/assets/img/logo/Icono_GEF_SinFondo_pequeno.svg';
+$logoUrl = 'https://grey-eagle-891611.hostingersite.com/assets/img/logo/Icono_GEF_SinFondo_pequeno.svg';
 
 $emailHtml = '
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"></head>
-<body style="margin:0;padding:0;background:#0f0f0f;font-family:Arial,Helvetica,sans-serif">
+<head>
+<meta charset="UTF-8">
+</head>
+<body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,Helvetica,sans-serif">
 <table width="100%" cellpadding="0" cellspacing="0" style="padding:30px 15px">
-<tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="background:#111;border-radius:12px;overflow:hidden">
+<tr>
+<td align="center">
 
-<tr><td style="text-align:center;padding:30px">
-<img src="'.$logoUrl.'" alt="GEF Automoción" style="max-width:160px">
-</td></tr>
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08)">
 
-<tr><td style="padding:0 40px 20px;text-align:center">
-<h2 style="margin:0;color:#c5b993;letter-spacing:1px">NUEVA SOLICITUD DE CONTACTO</h2>
-</td></tr>
+<!-- LOGO -->
+<tr>
+<td style="text-align:center;padding:30px 20px 20px">
+<img src="'.$logoUrl.'" alt="GEF Automoción" style="max-width:150px">
+</td>
+</tr>
 
-<tr><td style="padding:30px 40px;color:#e0e0e0;font-size:14px">
+<!-- TÍTULO -->
+<tr>
+<td style="padding:0 40px 20px;text-align:center">
+<h2 style="margin:0;color:#111111;font-size:22px;letter-spacing:1px">
+Nueva solicitud de contacto
+</h2>
+</td>
+</tr>
+
+<!-- DATOS -->
+<tr>
+<td style="padding:20px 40px;color:#333333;font-size:14px">
 <table width="100%" cellpadding="0" cellspacing="0">
-<tr><td style="padding:8px 0;color:#c5b993;width:110px"><strong>Nombre</strong></td><td>'.htmlspecialchars($name).'</td></tr>
-<tr><td style="padding:8px 0;color:#c5b993"><strong>Email</strong></td><td>'.htmlspecialchars($email).'</td></tr>
-<tr><td style="padding:8px 0;color:#c5b993"><strong>Asunto</strong></td><td>'.htmlspecialchars($subject).'</td></tr>
+<tr>
+<td style="padding:8px 0;width:110px;color:#111111"><strong>Nombre</strong></td>
+<td style="padding:8px 0">'.htmlspecialchars($name).'</td>
+</tr>
+<tr>
+<td style="padding:8px 0;color:#111111"><strong>Email</strong></td>
+<td style="padding:8px 0">'.htmlspecialchars($email).'</td>
+</tr>
+<tr>
+<td style="padding:8px 0;color:#111111"><strong>Asunto</strong></td>
+<td style="padding:8px 0">'.htmlspecialchars($subject).'</td>
+</tr>
 </table>
 
-<div style="margin:25px 0;height:1px;background:#2a2a2a"></div>
+<div style="margin:25px 0;height:1px;background:#e0e0e0"></div>
 
-<p style="margin:0 0 10px;color:#c5b993"><strong>Mensaje</strong></p>
-<div style="background:#0f0f0f;padding:20px;border-radius:8px;line-height:1.6">
+<p style="margin:0 0 10px;color:#111111"><strong>Mensaje</strong></p>
+<div style="background:#f9f9f9;padding:18px;border-radius:6px;line-height:1.6;color:#333333">
 '.nl2br(htmlspecialchars($body)).'
 </div>
-</td></tr>
+</td>
+</tr>
 
-<tr><td style="background:#0f0f0f;padding:25px;text-align:center;font-size:12px;color:#777">
-📍 Avilés · 📞 +34 645 952 869 · ✉️ gef.automocion@gmail.com
-</td></tr>
+<!-- FOOTER NEGRO -->
+<tr>
+<td style="background:#111111;padding:20px;text-align:center;font-size:12px;color:#cccccc">
+<strong style="color:#ffffff">GEF Automoción</strong><br>
+Avilés · +34 645 952 869 · gef.automocion@gmail.com
+</td>
+</tr>
 
 </table>
-</td></tr>
+
+</td>
+</tr>
 </table>
 </body>
 </html>
