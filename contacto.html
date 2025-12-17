@@ -242,7 +242,7 @@
                                     <h2>Contáctanos</h2>
                                     <p>¿Tienes alguna pregunta o quieres más información? Rellena el siguiente formulario y nos pondremos en contacto contigo lo antes posible.</p>
                                 </div>
-                                <form method="post" action="/assets/php/contact.php" id="contact-form">
+                                <form method="post" action="assets/php/contact.php" id="contact-form">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -266,9 +266,6 @@
                                             placeholder="Escribe tu mensaje"></textarea>
                                     </div>
                                     <button type="submit" class="theme-btn">Enviar mensaje <i class="far fa-paper-plane"></i></button>
-                                    <div class="col-md-12 mt-3">
-                                        <div class="form-messege text-success"></div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -277,6 +274,45 @@
             </div>
         </div>
         <!-- end contact area -->
+
+        <!-- Popup de notificación -->
+        <div id="success-popup" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px 50px; border-radius: 15px; box-shadow: 0 10px 50px rgba(0,0,0,0.3); text-align: center; z-index: 9999; display: none; min-width: 300px; animation: popupEnter 0.3s ease-out;">
+            <div style="font-size: 60px; margin-bottom: 20px;">✅</div>
+            <h2 style="color: #111111; font-size: 24px; margin: 0 0 15px 0; font-family: 'Montserrat', sans-serif; font-weight: 700;">¡Mensaje enviado!</h2>
+            <p style="color: #757F95; font-size: 16px; margin: 0; font-family: 'Montserrat', sans-serif;">Gracias por ponerte en contacto. Nos responderemos lo antes posible.</p>
+        </div>
+
+        <!-- Overlay semitransparente -->
+        <div id="success-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 9998; display: none;"></div>
+
+        <!-- Estilos para animación -->
+        <style>
+            @keyframes popupEnter {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+
+            @keyframes popupExit {
+                from {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                to {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.8);
+                }
+            }
+
+            .popup-exit {
+                animation: popupExit 0.3s ease-out forwards !important;
+            }
+        </style>
 
         <!-- map -->
         <div class="contact-map">
@@ -429,6 +465,55 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    
+    <!-- Script para manejo del formulario de contacto -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const successPopup = document.getElementById('success-popup');
+            const successOverlay = document.getElementById('success-overlay');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Crear FormData del formulario
+                    const formData = new FormData(contactForm);
+
+                    // Enviar mediante fetch
+                    fetch('assets/php/contact.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Mostrar popup
+                            successPopup.style.display = 'block';
+                            successOverlay.style.display = 'block';
+
+                            // Limpiar el formulario
+                            contactForm.reset();
+
+                            // Ocultar popup después de 5 segundos
+                            setTimeout(function() {
+                                successPopup.classList.add('popup-exit');
+                                setTimeout(function() {
+                                    successPopup.style.display = 'none';
+                                    successOverlay.style.display = 'none';
+                                    successPopup.classList.remove('popup-exit');
+                                }, 300);
+                            }, 5000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error al enviar el mensaje');
+                    });
+                });
+            }
+        });
+    </script>
     <script>
     (function () {
       const root = document.documentElement;
