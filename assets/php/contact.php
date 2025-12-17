@@ -2,74 +2,81 @@
 declare(strict_types=1);
 
 /**
+ * CONTACT FORM - VERSIÓN FINAL DEFINITIVA
+ * PHP 8.2 compatible
+ * Hostinger compatible
+ * Anti-bot equilibrado
+ *
  * IMPORTANTE:
  * - No espacios antes de <?php
- * - Archivo en UTF-8 sin BOM
+ * - UTF-8 sin BOM
  * - No cerrar con ?>
  */
 
 header('Content-Type: application/json; charset=UTF-8');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  http_response_code(405);
-  echo json_encode(['success' => false, 'message' => 'Método no permitido']);
-  exit;
-}
-
-/* =================================================
-   ANTI-BOTS (NO MODIFICA TU LÓGICA EXISTENTE)
-   ================================================= */
-
-// 1️⃣ Honeypot
-if (!empty($_POST['website'])) {
-  echo json_encode(['success' => false]);
-  exit;
-}
-
-// 2️⃣ Tiempo mínimo (2 segundos)
-$formTime = (int)($_POST['form_time'] ?? 0);
-if ($formTime > 0 && (time() * 1000 - $formTime) < 2000) {
-  echo json_encode(['success' => false]);
-  exit;
-}
-
-// 3️⃣ Cuenta matemática simple
-$mathA = (int)($_POST['math_a'] ?? 0);
-$mathB = (int)($_POST['math_b'] ?? 0);
-$mathResult = (int)($_POST['math_result'] ?? -1);
-
-if ($mathA > 0 && $mathB > 0) {
-  if (($mathA + $mathB) !== $mathResult) {
-    echo json_encode(['success' => false, 'message' => 'Validación incorrecta']);
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Método no permitido']);
     exit;
-  }
 }
 
 /* =================================================
-   TU CÓDIGO ORIGINAL (SIN CAMBIOS)
+   1️⃣ ANTI-BOT (SEGURO PERO NO AGRESIVO)
    ================================================= */
 
-// Sanitizar entradas
+// Honeypot (bots automáticos)
+if (!empty($_POST['website'])) {
+    echo json_encode(['success' => false]);
+    exit;
+}
+
+// Tiempo mínimo (500 ms → humanos OK, bots KO)
+$formTime = (int)($_POST['form_time'] ?? 0);
+if ($formTime > 0) {
+    $elapsed = (int)(microtime(true) * 1000) - $formTime;
+    if ($elapsed < 500) {
+        echo json_encode(['success' => false]);
+        exit;
+    }
+}
+
+// Cuenta matemática (solo si existe)
+$mathA = isset($_POST['math_a']) ? (int)$_POST['math_a'] : null;
+$mathB = isset($_POST['math_b']) ? (int)$_POST['math_b'] : null;
+$mathR = isset($_POST['math_result']) ? (int)$_POST['math_result'] : null;
+
+if ($mathA !== null && $mathB !== null && $mathR !== null) {
+    if (($mathA + $mathB) !== $mathR) {
+        echo json_encode(['success' => false, 'message' => 'Verificación incorrecta']);
+        exit;
+    }
+}
+
+/* =================================================
+   2️⃣ VALIDACIÓN DE DATOS (TU LÓGICA ORIGINAL)
+   ================================================= */
+
 $name    = trim($_POST['name'] ?? '');
 $email   = trim($_POST['email'] ?? '');
 $subject = trim($_POST['subject'] ?? '');
 $body    = trim($_POST['message'] ?? '');
 
 if ($name === '' || $email === '' || $subject === '' || $body === '') {
-  http_response_code(400);
-  echo json_encode(['success' => false, 'message' => 'Campos incompletos']);
-  exit;
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Campos incompletos']);
+    exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  http_response_code(400);
-  echo json_encode(['success' => false, 'message' => 'Email inválido']);
-  exit;
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Email inválido']);
+    exit;
 }
 
-/* =========================
-   CUERPO DEL EMAIL (HTML)
-   ========================= */
+/* =================================================
+   3️⃣ EMAIL HTML (TU DISEÑO)
+   ================================================= */
 
 $logoUrl = 'https://grey-eagle-891611.hostingersite.com/assets/img/logo/Icono_GEF_Email.png';
 
@@ -81,10 +88,11 @@ $emailHtml = '
 </head>
 <body style="margin:0;padding:0;background:#f4f4f4;font-family:Arial,Helvetica,sans-serif">
 <table width="100%" cellpadding="0" cellspacing="0" style="padding:30px 15px">
-<tr>
-<td align="center">
+<tr><td align="center">
 
-<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08)">
+<table width="600" cellpadding="0" cellspacing="0"
+       style="background:#ffffff;border-radius:8px;overflow:hidden;
+              box-shadow:0 5px 20px rgba(0,0,0,0.08)">
 
 <tr>
 <td style="text-align:center;padding:30px 20px 20px">
@@ -120,14 +128,16 @@ Nueva solicitud de contacto
 <div style="margin:25px 0;height:1px;background:#e0e0e0"></div>
 
 <p style="margin:0 0 10px;color:#111111"><strong>Mensaje</strong></p>
-<div style="background:#f9f9f9;padding:18px;border-radius:6px;line-height:1.6;color:#333333">
+<div style="background:#f9f9f9;padding:18px;border-radius:6px;
+            line-height:1.6;color:#333333">
 '.nl2br(htmlspecialchars($body)).'
 </div>
 </td>
 </tr>
 
 <tr>
-<td style="background:#111111;padding:20px;text-align:center;font-size:12px;color:#cccccc">
+<td style="background:#111111;padding:20px;text-align:center;
+           font-size:12px;color:#cccccc">
 <strong style="color:#ffffff">GEF Automoción</strong><br>
 Avilés · +34 645 952 869 · gef.automocion@gmail.com
 </td>
@@ -135,18 +145,17 @@ Avilés · +34 645 952 869 · gef.automocion@gmail.com
 
 </table>
 
-</td>
-</tr>
+</td></tr>
 </table>
 </body>
 </html>
 ';
 
-/* =========================
-   ENVÍO
-   ========================= */
+/* =================================================
+   4️⃣ ENVÍO
+   ================================================= */
 
-$to = 'p405gl@gmail.com';
+$to   = 'p405gl@gmail.com';
 $from = 'info@sch-soluciones.com';
 
 $headers  = "MIME-Version: 1.0\r\n";
@@ -157,6 +166,6 @@ $headers .= "Reply-To: {$email}\r\n";
 $sent = mail($to, $subject, $emailHtml, $headers);
 
 echo json_encode([
-  'success' => $sent,
-  'message' => $sent ? 'Mensaje enviado correctamente' : 'Error al enviar'
+    'success' => $sent,
+    'message' => $sent ? 'Mensaje enviado correctamente' : 'Error al enviar'
 ]);
