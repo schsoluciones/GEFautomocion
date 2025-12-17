@@ -38,7 +38,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
    CUERPO DEL EMAIL (HTML)
    ========================= */
 
-$logoUrl = 'https://grey-eagle-891611.hostingersite.com/assets/img/logo/Icono_GEF_SinFondo_pequeno.svg';
+$logoUrl = 'https://grey-eagle-891611.hostingersite.com/assets/img/logo/Icono_GEF_Email.png';
 
 $emailHtml = '
 <!DOCTYPE html>
