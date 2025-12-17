@@ -2,10 +2,9 @@
 declare(strict_types=1);
 
 /**
- * CONTACT FORM - VERSIÓN FINAL DEFINITIVA
+ * CONTACT FORM - VERSIÓN ESTABLE SIN TIEMPO
  * PHP 8.2 compatible
  * Hostinger compatible
- * Anti-bot equilibrado
  *
  * IMPORTANTE:
  * - No espacios antes de <?php
@@ -22,39 +21,32 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /* =================================================
-   1️⃣ ANTI-BOT (SEGURO PERO NO AGRESIVO)
+   ANTI-BOT (SEGURO Y SIMPLE)
    ================================================= */
 
-// Honeypot (bots automáticos)
+// Honeypot
 if (!empty($_POST['website'])) {
     echo json_encode(['success' => false]);
     exit;
 }
 
-// Tiempo mínimo (500 ms → humanos OK, bots KO)
-$formTime = (int)($_POST['form_time'] ?? 0);
-if ($formTime > 0) {
-    $elapsed = (int)(microtime(true) * 1000) - $formTime;
-    if ($elapsed < 500) {
-        echo json_encode(['success' => false]);
-        exit;
-    }
-}
-
-// Cuenta matemática (solo si existe)
+// Cuenta matemática (OBLIGATORIA)
 $mathA = isset($_POST['math_a']) ? (int)$_POST['math_a'] : null;
 $mathB = isset($_POST['math_b']) ? (int)$_POST['math_b'] : null;
 $mathR = isset($_POST['math_result']) ? (int)$_POST['math_result'] : null;
 
-if ($mathA !== null && $mathB !== null && $mathR !== null) {
-    if (($mathA + $mathB) !== $mathR) {
-        echo json_encode(['success' => false, 'message' => 'Verificación incorrecta']);
-        exit;
-    }
+if ($mathA === null || $mathB === null || $mathR === null) {
+    echo json_encode(['success' => false]);
+    exit;
+}
+
+if (($mathA + $mathB) !== $mathR) {
+    echo json_encode(['success' => false, 'message' => 'Verificación incorrecta']);
+    exit;
 }
 
 /* =================================================
-   2️⃣ VALIDACIÓN DE DATOS (TU LÓGICA ORIGINAL)
+   VALIDACIÓN DE DATOS (TU CÓDIGO ORIGINAL)
    ================================================= */
 
 $name    = trim($_POST['name'] ?? '');
@@ -75,7 +67,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 /* =================================================
-   3️⃣ EMAIL HTML (TU DISEÑO)
+   EMAIL HTML
    ================================================= */
 
 $logoUrl = 'https://grey-eagle-891611.hostingersite.com/assets/img/logo/Icono_GEF_Email.png';
@@ -91,8 +83,8 @@ $emailHtml = '
 <tr><td align="center">
 
 <table width="600" cellpadding="0" cellspacing="0"
-       style="background:#ffffff;border-radius:8px;overflow:hidden;
-              box-shadow:0 5px 20px rgba(0,0,0,0.08)">
+style="background:#ffffff;border-radius:8px;overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.08)">
 
 <tr>
 <td style="text-align:center;padding:30px 20px 20px">
@@ -102,7 +94,7 @@ $emailHtml = '
 
 <tr>
 <td style="padding:0 40px 20px;text-align:center">
-<h2 style="margin:0;color:#111111;font-size:22px;letter-spacing:1px">
+<h2 style="margin:0;color:#111111;font-size:22px">
 Nueva solicitud de contacto
 </h2>
 </td>
@@ -110,34 +102,16 @@ Nueva solicitud de contacto
 
 <tr>
 <td style="padding:20px 40px;color:#333333;font-size:14px">
-<table width="100%" cellpadding="0" cellspacing="0">
-<tr>
-<td style="padding:8px 0;width:110px;color:#111111"><strong>Nombre</strong></td>
-<td style="padding:8px 0">'.htmlspecialchars($name).'</td>
-</tr>
-<tr>
-<td style="padding:8px 0;color:#111111"><strong>Email</strong></td>
-<td style="padding:8px 0">'.htmlspecialchars($email).'</td>
-</tr>
-<tr>
-<td style="padding:8px 0;color:#111111"><strong>Asunto</strong></td>
-<td style="padding:8px 0">'.htmlspecialchars($subject).'</td>
-</tr>
-</table>
-
-<div style="margin:25px 0;height:1px;background:#e0e0e0"></div>
-
-<p style="margin:0 0 10px;color:#111111"><strong>Mensaje</strong></p>
-<div style="background:#f9f9f9;padding:18px;border-radius:6px;
-            line-height:1.6;color:#333333">
+<strong>Nombre:</strong> '.htmlspecialchars($name).'<br>
+<strong>Email:</strong> '.htmlspecialchars($email).'<br>
+<strong>Asunto:</strong> '.htmlspecialchars($subject).'<br><br>
+<strong>Mensaje:</strong><br>
 '.nl2br(htmlspecialchars($body)).'
-</div>
 </td>
 </tr>
 
 <tr>
-<td style="background:#111111;padding:20px;text-align:center;
-           font-size:12px;color:#cccccc">
+<td style="background:#111111;padding:20px;text-align:center;font-size:12px;color:#cccccc">
 <strong style="color:#ffffff">GEF Automoción</strong><br>
 Avilés · +34 645 952 869 · gef.automocion@gmail.com
 </td>
@@ -152,7 +126,7 @@ Avilés · +34 645 952 869 · gef.automocion@gmail.com
 ';
 
 /* =================================================
-   4️⃣ ENVÍO
+   ENVÍO
    ================================================= */
 
 $to   = 'p405gl@gmail.com';
