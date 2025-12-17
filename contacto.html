@@ -244,49 +244,56 @@
                                 </div>
                                <form method="post" action="assets/php/contact.php" id="contact-form">
 
-                                    <!-- Honeypot -->
-                                    <div style="display:none;">
-                                        <input type="text" name="website" autocomplete="off">
-                                    </div>
-                                
-                                    <!-- Timestamp -->
-                                    <input type="hidden" name="form_time" id="form_time">
-                                
-                                    <!-- Operación matemática -->
-                                    <input type="hidden" name="math_a" id="math_a">
-                                    <input type="hidden" name="math_b" id="math_b">
-                                
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="name" placeholder="Nombre" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                            </div>
+                                <!-- Honeypot -->
+                                <div style="display:none;">
+                                    <input type="text" name="website" autocomplete="off">
+                                </div>
+                            
+                                <!-- Timestamp -->
+                                <input type="hidden" name="form_time" id="form_time">
+                            
+                                <!-- Operación matemática (ocultos) -->
+                                <input type="hidden" name="math_a" id="math_a">
+                                <input type="hidden" name="math_b" id="math_b">
+                            
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" placeholder="Nombre" required>
                                         </div>
                                     </div>
-                                
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                        </div>
                                     </div>
-                                
-                                    <div class="form-group">
-                                        <textarea name="message" cols="30" rows="5" class="form-control" placeholder="Escribe tu mensaje" required></textarea>
-                                    </div>
-                                
-                                    <!-- Cuenta matemática -->
-                                    <div class="form-group">
-                                        <label id="math-label" style="color:#ffffff;font-size:14px;"></label>
-                                        <input type="number" class="form-control" name="math_result" placeholder="Resultado" required>
-                                    </div>
-                                
-                                    <button type="submit" class="theme-btn">
-                                        Enviar mensaje <i class="far fa-paper-plane"></i>
-                                    </button>
-                                </form>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
+                                </div>
+                            
+                                <div class="form-group">
+                                    <textarea name="message" rows="5" class="form-control" placeholder="Escribe tu mensaje" required></textarea>
+                                </div>
+                            
+                                <!-- CUENTA MATEMÁTICA (VISIBLE) -->
+                                <div class="form-group">
+                                    <label id="math-label"
+                                           style="color:#c5b993;font-weight:600;display:block;margin-bottom:6px;">
+                                        <!-- JS pinta aquí -->
+                                    </label>
+                                    <input type="number"
+                                           class="form-control"
+                                           name="math_result"
+                                           placeholder="Resultado"
+                                           required>
+                                </div>
+                            
+                                <button type="submit" class="theme-btn">
+                                    Enviar mensaje <i class="far fa-paper-plane"></i>
+                                </button>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -619,6 +626,40 @@
             });
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    // Timestamp
+    document.getElementById('form_time').value = Date.now();
+
+    // Generar cuenta
+    const a = Math.floor(Math.random() * 5) + 1;
+    const b = Math.floor(Math.random() * 5) + 1;
+
+    document.getElementById('math_a').value = a;
+    document.getElementById('math_b').value = b;
+
+    const label = document.getElementById('math-label');
+    label.textContent = `Verificación: ¿cuánto es ${a} + ${b}?`;
+
+    // Validación rápida frontend
+    form.addEventListener('submit', function (e) {
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const msg = form.message.value.trim();
+        const math = form.math_result.value.trim();
+
+        if (name.length < 3 || msg.length < 10 || !email.includes('@') || math === '') {
+            alert('Por favor, completa correctamente el formulario.');
+            e.preventDefault();
+        }
+    });
+
+});
+</script>
 
 
 </body>
