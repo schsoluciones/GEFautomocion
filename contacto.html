@@ -244,56 +244,72 @@
                                 </div>
                                <form method="post" action="assets/php/contact.php" id="contact-form">
 
-                                <!-- Honeypot -->
-                                <div style="display:none;">
-                                    <input type="text" name="website" autocomplete="off">
-                                </div>
-                            
-                                <!-- Timestamp -->
-                                <input type="hidden" name="form_time" id="form_time">
-                            
-                                <!-- Operación matemática (ocultos) -->
-                                <input type="hidden" name="math_a" id="math_a">
-                                <input type="hidden" name="math_b" id="math_b">
-                            
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="name" placeholder="Nombre" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Asunto" required>
-                                </div>
-                            
-                                <div class="form-group">
-                                    <textarea name="message" rows="5" class="form-control" placeholder="Escribe tu mensaje" required></textarea>
-                                </div>
-                            
-                                <!-- CUENTA MATEMÁTICA (VISIBLE) -->
-                                <div class="form-group">
-                                    <label id="math-label"
-                                           style="color:#c5b993;font-weight:600;display:block;margin-bottom:6px;">
-                                        <!-- JS pinta aquí -->
-                                    </label>
-                                    <input type="number"
-                                           class="form-control"
-                                           name="math_result"
-                                           placeholder="Resultado"
-                                           required>
-                                </div>
-                            
-                                <button type="submit" class="theme-btn">
-                                    Enviar mensaje <i class="far fa-paper-plane"></i>
-                                </button>
-                            </form>
+    <!-- Honeypot antispam -->
+    <div style="display:none;">
+        <input type="text" name="website" autocomplete="off">
+    </div>
+
+    <!-- Timestamp -->
+    <input type="hidden" name="form_time" id="form_time">
+
+    <!-- Verificación matemática -->
+    <input type="hidden" name="math_a" id="math_a">
+    <input type="hidden" name="math_b" id="math_b">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text"
+                       class="form-control"
+                       name="name"
+                       placeholder="Nombre"
+                       required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="email"
+                       class="form-control"
+                       name="email"
+                       placeholder="Email"
+                       required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="text"
+               class="form-control"
+               name="subject"
+               placeholder="Asunto"
+               required>
+    </div>
+
+    <div class="form-group">
+        <textarea name="message"
+                  rows="5"
+                  class="form-control"
+                  placeholder="Escribe tu mensaje"
+                  required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label id="math-label"
+               style="color:#c5b993;font-weight:600;display:block;margin-bottom:6px;">
+        </label>
+        <input type="number"
+               class="form-control"
+               name="math_result"
+               placeholder="Resultado"
+               required>
+    </div>
+
+    <button type="submit" class="theme-btn">
+        Enviar mensaje <i class="far fa-paper-plane"></i>
+    </button>
+</form>
+
                             </div>
                         </div>
                     </div>
@@ -493,173 +509,66 @@
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     
-    <!-- Script para manejo del formulario de contacto -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            const successPopup = document.getElementById('success-popup');
-            const successOverlay = document.getElementById('success-overlay');
-
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    // Crear FormData del formulario
-                    const formData = new FormData(contactForm);
-
-                    // Enviar mediante fetch
-                    fetch('assets/php/contact.php', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Mostrar popup
-                            successPopup.style.display = 'block';
-                            successOverlay.style.display = 'block';
-
-                            // Limpiar el formulario
-                            contactForm.reset();
-
-                            // Ocultar popup después de 5 segundos
-                            setTimeout(function() {
-                                successPopup.classList.add('popup-exit');
-                                setTimeout(function() {
-                                    successPopup.style.display = 'none';
-                                    successOverlay.style.display = 'none';
-                                    successPopup.classList.remove('popup-exit');
-                                }, 300);
-                            }, 5000);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Error al enviar el mensaje');
-                    });
-                });
-            }
-        });
-    </script>
-    <script>
-    (function () {
-      const root = document.documentElement;
-    
-      function setHeaderHeight() {
-        const header = document.querySelector('.header');
-        const h = header ? Math.ceil(header.getBoundingClientRect().height) : 0;
-        root.style.setProperty('--header-h', h + 'px');
-      }
-    
-      // Recalcular al cargar, redimensionar y cuando se abre/cierra el menú mobile
-      window.addEventListener('load', setHeaderHeight);
-      window.addEventListener('resize', setHeaderHeight);
-    
-      // Eventos de Bootstrap collapse para el menú
-      document.addEventListener('shown.bs.collapse', setHeaderHeight);
-      document.addEventListener('hidden.bs.collapse', setHeaderHeight);
-    
-      // Si cambia el header por cualquier motivo (sticky, logos, etc.)
-      const header = document.querySelector('.header');
-      if ('ResizeObserver' in window && header) {
-        const ro = new ResizeObserver(setHeaderHeight);
-        ro.observe(header);
-      }
-    
-      // Primera llamada inmediata
-      setHeaderHeight();
-    })();
-    </script>
-    <script>
-      // Autoplay al abrir y limpiar al cerrar
-      document.addEventListener('DOMContentLoaded', function () {
-        const modalEl = document.getElementById('videoModal');
-        const iframe = document.getElementById('videoFrame');
-    
-        // Cuando se va a abrir la modal
-        modalEl.addEventListener('show.bs.modal', function (event) {
-          const trigger = event.relatedTarget; // el botón que abrió la modal
-          if (!trigger) return;
-        
-          const videoId = trigger.getAttribute('data-video-id');
-          const params = new URLSearchParams({
-            autoplay: 1,
-            rel: 0,
-            modestbranding: 1,
-            playsinline: 1
-          });
-          iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
-        });
-    
-        // Al cerrar la modal, limpia el src para detener la reproducción
-        modalEl.addEventListener('hidden.bs.modal', function () {
-          iframe.src = '';
-        });
-      });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.getElementById('contact-form');
-        
-            // Timestamp
-            document.getElementById('form_time').value = Date.now();
-        
-            // Operación matemática
-            const a = Math.floor(Math.random() * 5) + 1;
-            const b = Math.floor(Math.random() * 5) + 1;
-        
-            document.getElementById('math_a').value = a;
-            document.getElementById('math_b').value = b;
-            document.getElementById('math-label').textContent = `¿Cuánto es ${a} + ${b}?`;
-        
-            form.addEventListener('submit', function (e) {
-                const name = form.querySelector('[name="name"]').value.trim();
-                const email = form.querySelector('[name="email"]').value.trim();
-                const msg = form.querySelector('[name="message"]').value.trim();
-                const math = form.querySelector('[name="math_result"]').value.trim();
-            
-                if (name.length < 3 || msg.length < 10 || !email.includes('@') || math === '') {
-                    alert('Por favor, completa correctamente el formulario.');
-                    e.preventDefault();
-                    return false;
-                }
-            });
-        });
-    </script>
-    <script>
+   <script>
 document.addEventListener('DOMContentLoaded', function () {
 
     const form = document.getElementById('contact-form');
+    const successPopup = document.getElementById('success-popup');
+    const successOverlay = document.getElementById('success-overlay');
+
     if (!form) return;
 
     // Timestamp
     document.getElementById('form_time').value = Date.now();
 
-    // Generar cuenta
+    // Generar operación matemática
     const a = Math.floor(Math.random() * 5) + 1;
     const b = Math.floor(Math.random() * 5) + 1;
 
     document.getElementById('math_a').value = a;
     document.getElementById('math_b').value = b;
 
-    const label = document.getElementById('math-label');
-    label.textContent = `Verificación: ¿cuánto es ${a} + ${b}?`;
+    document.getElementById('math-label').textContent =
+        `Verificación: ¿cuánto es ${a} + ${b}?`;
 
-    // Validación rápida frontend
+    // Envío del formulario
     form.addEventListener('submit', function (e) {
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const msg = form.message.value.trim();
-        const math = form.math_result.value.trim();
+        e.preventDefault();
 
-        if (name.length < 3 || msg.length < 10 || !email.includes('@') || math === '') {
-            alert('Por favor, completa correctamente el formulario.');
-            e.preventDefault();
-        }
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            if (!data.success) {
+                alert(data.message);
+                return;
+            }
+
+            // Mostrar popup de éxito
+            successPopup.style.display = 'block';
+            successOverlay.style.display = 'block';
+
+            // Limpiar formulario
+            form.reset();
+
+            // Ocultar popup tras 5s
+            setTimeout(() => {
+                successPopup.style.display = 'none';
+                successOverlay.style.display = 'none';
+            }, 5000);
+        })
+        .catch(() => {
+            alert('Error al enviar el formulario');
+        });
     });
-
 });
 </script>
+
 
 
 </body>
