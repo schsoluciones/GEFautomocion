@@ -7,41 +7,33 @@
  $contact_message = $_POST['message'];
 
 
- $message = "<html><body style='font-family: Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 20px;'>";
- $message .= "<div style='background-color: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto;'>";
+ $message = "<html><head><style>body{font-family:Arial,sans-serif;background:#f5f5f5;margin:0;padding:20px}table{width:100%;max-width:600px;margin:0 auto;background:#fff;border-radius:8px;overflow:hidden}td{padding:20px}.header{background:#c5b993;color:#fff;text-align:center;padding:30px 20px}.title{font-size:24px;font-weight:bold;margin:0}.info{background:#f9f9f9;border-left:4px solid #c5b993;padding:15px;margin:10px 0}.label{font-weight:bold;color:#111}.value{color:#757F95;margin:5px 0}.msg-box{background:#fff;border:1px solid #e0e0e0;padding:15px;margin:15px 0}.footer{background:#111;color:#fff;text-align:center;font-size:12px;padding:15px}</style></head><body>";
+ $message .= "<table><tr><td class='header'><p class='title'>Nueva Solicitud de Contacto</p></td></tr>";
+ $message .= "<tr><td>";
  
- $message .= "<div style='background: linear-gradient(135deg, #c5b993 0%, #a89367 100%); color: white; padding: 30px; text-align: center;'>";
- $message .= "<h1 style='margin: 0; font-size: 28px; font-weight: 700;'>Nueva Solicitud de Contacto</h1>";
+ $message .= "<div class='info'>";
+ $message .= "<div class='label'>Nombre:</div>";
+ $message .= "<div class='value'>".$name."</div>";
  $message .= "</div>";
  
- $message .= "<div style='padding: 30px;'>";
- 
- $message .= "<div style='background: #f9f9f9; border-left: 4px solid #c5b993; padding: 15px; margin: 15px 0; border-radius: 4px;'>";
- $message .= "<strong style='color: #111111; display: block; margin-bottom: 5px;'>Nombre:</strong>";
- $message .= "<p style='margin: 0; color: #757F95;'>".$name."</p>";
+ $message .= "<div class='info'>";
+ $message .= "<div class='label'>Email:</div>";
+ $message .= "<div class='value'>".$email."</div>";
  $message .= "</div>";
  
- $message .= "<div style='background: #f9f9f9; border-left: 4px solid #c5b993; padding: 15px; margin: 15px 0; border-radius: 4px;'>";
- $message .= "<strong style='color: #111111; display: block; margin-bottom: 5px;'>Email:</strong>";
- $message .= "<p style='margin: 0; color: #757F95;'>".$email."</p>";
+ $message .= "<div class='info'>";
+ $message .= "<div class='label'>Asunto:</div>";
+ $message .= "<div class='value'>".$subject."</div>";
  $message .= "</div>";
  
- $message .= "<div style='background: #ffffff; border: 1px solid #e0e0e0; padding: 20px; margin: 20px 0; border-radius: 8px;'>";
- $message .= "<strong style='color: #111111; display: block; margin-bottom: 10px;'>Mensaje:</strong>";
- $message .= "<p style='color: #111111; line-height: 1.6; margin: 0;'>".$contact_message."</p>";
+ $message .= "<div class='msg-box'>";
+ $message .= "<div class='label' style='margin-bottom:10px'>Mensaje:</div>";
+ $message .= "<div class='value' style='white-space:pre-wrap'>".$contact_message."</div>";
  $message .= "</div>";
  
- $message .= "<div style='color: #757F95; font-size: 12px; border-top: 1px solid #e0e0e0; padding-top: 15px; margin-top: 15px;'>";
- $message .= "<p style='margin: 0;'>Responde directamente a <strong>".$email."</strong> para contactar con el solicitante.</p>";
- $message .= "</div>";
- 
- $message .= "</div>";
- 
- $message .= "<div style='background: #111111; color: white; text-align: center; padding: 20px; font-size: 12px;'>";
- $message .= "<p style='margin: 0;'>&copy; 2025 GEF Automocion. Todos los derechos reservados.</p>";
- $message .= "</div>";
- 
- $message .= "</div></body></html>";
+ $message .= "</td></tr><tr><td class='footer'>";
+ $message .= "<p style='margin:0'>&copy; 2025 GEF Automocion</p>";
+ $message .= "</td></tr></table></body></html>";
             
             
  $to = "p405gl@gmail.com";
