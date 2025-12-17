@@ -16,6 +16,39 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   exit;
 }
 
+/* =================================================
+   ANTI-BOTS (NO MODIFICA TU LÓGICA EXISTENTE)
+   ================================================= */
+
+// 1️⃣ Honeypot
+if (!empty($_POST['website'])) {
+  echo json_encode(['success' => false]);
+  exit;
+}
+
+// 2️⃣ Tiempo mínimo (2 segundos)
+$formTime = (int)($_POST['form_time'] ?? 0);
+if ($formTime > 0 && (time() * 1000 - $formTime) < 2000) {
+  echo json_encode(['success' => false]);
+  exit;
+}
+
+// 3️⃣ Cuenta matemática simple
+$mathA = (int)($_POST['math_a'] ?? 0);
+$mathB = (int)($_POST['math_b'] ?? 0);
+$mathResult = (int)($_POST['math_result'] ?? -1);
+
+if ($mathA > 0 && $mathB > 0) {
+  if (($mathA + $mathB) !== $mathResult) {
+    echo json_encode(['success' => false, 'message' => 'Validación incorrecta']);
+    exit;
+  }
+}
+
+/* =================================================
+   TU CÓDIGO ORIGINAL (SIN CAMBIOS)
+   ================================================= */
+
 // Sanitizar entradas
 $name    = trim($_POST['name'] ?? '');
 $email   = trim($_POST['email'] ?? '');
@@ -53,14 +86,12 @@ $emailHtml = '
 
 <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,0.08)">
 
-<!-- LOGO -->
 <tr>
 <td style="text-align:center;padding:30px 20px 20px">
 <img src="'.$logoUrl.'" alt="GEF Automoción" style="max-width:150px">
 </td>
 </tr>
 
-<!-- TÍTULO -->
 <tr>
 <td style="padding:0 40px 20px;text-align:center">
 <h2 style="margin:0;color:#111111;font-size:22px;letter-spacing:1px">
@@ -69,7 +100,6 @@ Nueva solicitud de contacto
 </td>
 </tr>
 
-<!-- DATOS -->
 <tr>
 <td style="padding:20px 40px;color:#333333;font-size:14px">
 <table width="100%" cellpadding="0" cellspacing="0">
@@ -96,7 +126,6 @@ Nueva solicitud de contacto
 </td>
 </tr>
 
-<!-- FOOTER NEGRO -->
 <tr>
 <td style="background:#111111;padding:20px;text-align:center;font-size:12px;color:#cccccc">
 <strong style="color:#ffffff">GEF Automoción</strong><br>
