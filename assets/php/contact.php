@@ -139,7 +139,7 @@ GEF Automoción · Avilés · +34 645 952 869
 ';
 
 $to   = 'p405gl@gmail.com';
-$from = 'info@sch-soluciones.com';
+$from = 'gef.automocion@gmail.com';
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8\r\n";
