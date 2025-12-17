@@ -87,8 +87,8 @@ $emailHtml = '
    ENVÍO
    ========================= */
 
-$to = 'gef.automocion@gmail.com';
-$from = 'info@gef-automocion.com';
+$to = 'p405gl@gmail.com';
+$from = 'info@sch-soluciones.com';
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type: text/html; charset=UTF-8\r\n";
