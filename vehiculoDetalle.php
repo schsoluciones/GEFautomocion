@@ -427,20 +427,70 @@ if ($ident !== '') {
                             <div class="car-single-widget">
                                 <h5 class="mb-3">Contactar</h5>
                                 <div class="car-single-form">
-                                    <form action="contacto.html" method="get">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Nombre">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="Mensaje">Hola, me interesa el <?php echo h(($vehiculo['marca'] ?? '').' '.($vehiculo['modelo'] ?? '')); ?> (<?php echo h($vehiculo['identificacion']); ?>).</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="theme-btn">Enviar ahora <i class="fas fa-arrow-right-long"></i></button>
-                                        </div>
-                                    </form>
+                                    <form action="assets/php/contact.php"
+      method="post"
+      id="vehicle-contact-form">
+
+    <!-- Honeypot -->
+    <div style="display:none;">
+        <input type="text" name="website" autocomplete="off">
+    </div>
+
+    <!-- Timestamp -->
+    <input type="hidden" name="form_time" id="v_form_time">
+
+    <!-- Verificación matemática -->
+    <input type="hidden" name="math_a" id="v_math_a">
+    <input type="hidden" name="math_b" id="v_math_b">
+
+    <!-- Identificación del vehículo -->
+    <input type="hidden"
+           name="subject"
+           value="Consulta vehículo <?php echo h($vehiculo['identificacion']); ?>">
+
+    <div class="form-group">
+        <input type="text"
+               class="form-control"
+               name="name"
+               placeholder="Nombre"
+               required>
+    </div>
+
+    <div class="form-group">
+        <input type="email"
+               class="form-control"
+               name="email"
+               placeholder="Email"
+               required>
+    </div>
+
+    <div class="form-group">
+        <textarea class="form-control"
+                  name="message"
+                  rows="3"
+                  required>Hola, me interesa el <?php
+echo h(($vehiculo['marca'] ?? '').' '.($vehiculo['modelo'] ?? ''));
+?> (<?php echo h($vehiculo['identificacion']); ?>).</textarea>
+    </div>
+
+    <!-- Verificación visible -->
+    <div class="form-group">
+        <label id="v-math-label"
+               style="font-weight:600;color:#c5b993;display:block;margin-bottom:6px;">
+        </label>
+        <input type="number"
+               class="form-control"
+               name="math_result"
+               placeholder="Resultado"
+               required>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="theme-btn">
+            Enviar ahora <i class="fas fa-arrow-right-long"></i>
+        </button>
+    </div>
+</form>
                                 </div>
                             </div>
 
@@ -665,5 +715,49 @@ if ($ident !== '') {
             }
         });
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const form = document.getElementById('vehicle-contact-form');
+    if (!form) return;
+
+    // Timestamp
+    document.getElementById('v_form_time').value = Date.now();
+
+    // Generar verificación matemática
+    const a = Math.floor(Math.random() * 5) + 1;
+    const b = Math.floor(Math.random() * 5) + 1;
+
+    document.getElementById('v_math_a').value = a;
+    document.getElementById('v_math_b').value = b;
+
+    document.getElementById('v-math-label').textContent =
+        `Verificación: ¿cuánto es ${a} + ${b}?`;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (!data.success) {
+                alert(data.message);
+                return;
+            }
+
+            alert('Mensaje enviado correctamente');
+            form.reset();
+        })
+        .catch(() => {
+            alert('Error al enviar el mensaje');
+        });
+    });
+});
+</script>
 </body>
 </html>
